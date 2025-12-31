@@ -2,8 +2,14 @@
   {
     "id": "1",
     "images": [
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767124472/Messenger_creation_C4E0488C-6C6C-4237-AAF5-DE2F01F43553_psnehj.jpg",
-      
+      {
+        "desktop": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767124472/Messenger_creation_C4E0488C-6C6C-4237-AAF5-DE2F01F43553_psnehj.jpg",
+        "mobile": [
+            "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767124472/Messenger_creation_C4E0488C-6C6C-4237-AAF5-DE2F01F43553_psnehj.jpg",
+            "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945701/photo_42_2025-12-29_02-02-12_e5bcmp.jpg"
+        ]
+      },
+
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939996/Messenger_creation_1B8A0952-E10E-4C50-909A-80D0B72737F1_et01vs.jpg"
     ],
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767124472/Messenger_creation_C4E0488C-6C6C-4237-AAF5-DE2F01F43553_psnehj.jpg",
@@ -13,10 +19,20 @@
   },
   {
     "id": "2",
+
     "images": [
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939342/500442052_681027907890621_3151875760700323871_n_mkssn9.jpg",
+      {
+        "desktop": [ "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939342/500442052_681027907890621_3151875760700323871_n_mkssn9.jpg",
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945619/photo_52_2025-12-29_02-02-12_r1uhky.jpg",
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945648/photo_8_2025-12-29_02-02-12_isahur.jpg"
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945648/photo_8_2025-12-29_02-02-12_isahur.jpg" ],
+        "mobile": [
+           "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945648/photo_4_2025-12-29_02-02-12_cvms8a.jpg",
+           "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945665/photo_25_2025-12-29_02-02-12_zpjakl.jpg",
+           "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945671/photo_30_2025-12-29_02-02-12_bavile.jpg"
+        ]
+      },
+
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939996/Messenger_creation_1B8A0952-E10E-4C50-909A-80D0B72737F1_et01vs.jpg"
     ],
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939342/500442052_681027907890621_3151875760700323871_n_mkssn9.jpg",
     "title": "New Heights and lows",
@@ -25,11 +41,21 @@
   },
   {
     "id": "3",
-    "images": [
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_48_2025-12-29_02-02-12_jbhbxf.jpg",
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945619/photo_51_2025-12-29_02-02-12_xyzcw2.jpg",
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_46_2025-12-29_02-02-12_ao4npb.jpg"
+     "images": [
+      {
+        "desktop": [ 
+          "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_48_2025-12-29_02-02-12_jbhbxf.jpg",
+          "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945619/photo_51_2025-12-29_02-02-12_xyzcw2.jpg",
+          "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_46_2025-12-29_02-02-12_ao4npb.jpg"
+        ],
+        "mobile": [
+           "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767176114/Messenger_creation_560F4A1F-5D1F-4173-BB73-83B8B3F19AE2_kmr1fk.jpg",
+           "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767176153/Messenger_creation_605B1AAC-4334-44C3-8A07-FFD605647E3C_rnfob4.jpg",
+           "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767176161/received_10062738853815801_jxb4m6.jpg"
+        ]
+      }
     ],
+
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_48_2025-12-29_02-02-12_jbhbxf.jpg",
     "title": "People",
     "description": "to the people i met this year and build relationship thank you for having me without you i will not be rhyss, thank you for having laughts, having wild drinking session, and even just having the time with me, i hope we can see in the future and celebrate our achivements",
@@ -38,13 +64,24 @@
   {
     "id": "4",
     "images": [
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767127035/received_729268375823860_cziglj.jpg",
+        {
+        "desktop": [ 
+           "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767127035/received_729268375823860_cziglj.jpg",
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939540/received_7696740833670458_gcyg3v.jpg",
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939574/received_1093908959081497_mlqnyh.jpg",
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1752335631/462650385_1273653783665121_9032193715436817673_n_fdv9w6.jpg",
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1752335630/462578647_1073607034545333_2751348329163223964_n_vzw7v1.jpg"
-      
+        ],
+        "mobile": [
+            "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767127035/received_729268375823860_cziglj.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939540/received_7696740833670458_gcyg3v.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939574/received_1093908959081497_mlqnyh.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1752335631/462650385_1273653783665121_9032193715436817673_n_fdv9w6.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1752335630/462578647_1073607034545333_2751348329163223964_n_vzw7v1.jpg"
+        ]
+      }
     ],
+    
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939540/received_7696740833670458_gcyg3v.jpg",
     "title": "The Adventure",
     "description": "thank you to my classmate and groupmates, you were all awsome it's been a crazy ride having different experince through the years from first year totoys to fourth year na gusto nalang mag tapos, thank you for the memories ",
@@ -53,11 +90,20 @@
   {
     "id": "5",
     "images": [
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939565/received_1809661546296324_nwsao0.jpg",
+        {
+        "desktop": [ 
+            "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939565/received_1809661546296324_nwsao0.jpg",
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767126530/photo_54_2025-12-29_02-02-12_lw4zre.jpg",
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939958/Messenger_creation_1447755149890924_v5hgih.jpg",
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767127036/received_745673704673854_posopo.jpg"
-
+        ],
+        "mobile": [
+            "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767176316/Messenger_creation_FEA93BDB-29DA-4491-BB43-04D0B9175E9B_b0szob.jpg",
+            "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767176305/Messenger_creation_828F75D1-9F84-4974-9767-2D35D44FF438_qioi0z.jpg",
+            "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767176300/Messenger_creation_954AB14A-ED38-4747-9270-5DE5F50E34D3_bjf2sn.jpg"
+    
+        ]
+      }
     ],
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939565/received_1809661546296324_nwsao0.jpg",
     "title": "The ending was just the start",
@@ -66,13 +112,23 @@
   },
   {
     "id": "6",
-    "images": [
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_50_2025-12-29_02-02-12_mlf0m6.jpg",
+     "images": [
+        {
+        "desktop": [ 
+            "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_50_2025-12-29_02-02-12_mlf0m6.jpg",
      
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945671/photo_32_2025-12-29_02-02-12_gcsowd.jpg",
 
       "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767127036/Messenger_creation_6764A0D7-C262-40C5-B7AF-5892BB75DF63_d1xm3l.jpg"
+        ],
+        "mobile": [
+            "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767176161/received_10062738853815801_jxb4m6.jpg",
+            ""
+    
+        ]
+      }
     ],
+   
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_50_2025-12-29_02-02-12_mlf0m6.jpg",
     "title": "The Future",
     "description": "we don't what hold the future but make sure that your dream will come true, your future is brighter than ever, many times you will failed but there is always a way to make it right. we all have our own path to follow, but we all have the same goal, to make our future brighter than ever.",
@@ -81,12 +137,13 @@
   {
     "id": "7",
     "images": [
-      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_50_2025-12-29_02-02-12_mlf0m6.jpg"
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767177624/image_eyiwmv.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767177623/2_psblqp.jpg"
      
     ],
-    "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_50_2025-12-29_02-02-12_mlf0m6.jpg",
+    "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767177624/image_eyiwmv.jpg",
     "title": "About you",
-    "description": "the choosen song the choosen picture maybe this year was the most memorable and pailfull, i didn't think this year was full of question that i should have answerd what if i didn't take that student president route, what if i just tried to be a normal student, what if i just try to be a normal person",
+    "description": "the choosen song the choosen picture maybe this year was the most memorable and pailfull, i didn't think this year was full of question that i should have answerd what if i didn't take that student president route, what if i just tried to be a normal student, what if i just try to be a normal person, what if i just tried to love the way you wanted maybe we are still in tack, this year was full of misleading direction and one of them was losing you in the process you",
     "date": "2025"
   }
 

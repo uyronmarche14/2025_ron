@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Calendar, ChevronDown } from 'lucide-react';
 import FilmGrain from '../common/FilmGrain';
@@ -82,73 +82,99 @@ const containerVariants = {
   }
 };
 
-// TV Channel Switch / Carousel Effect
+// Custom hook for mobile detection
+const useIsMobile = () => {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+    return isMobile;
+};
+
+// Cinematic Carousel Effect (Movie Style Cross-fade)
 const TVCarousel = ({ images }) => {
-    // Ensure images is an array
-    const slides = Array.isArray(images) ? images : [images];
+    const isMobile = useIsMobile();
+    
+    // Normalize images into a flat array of strings based on device
+    const slides = useMemo(() => {
+        if (!images) return [];
+
+        let rawSources = [];
+
+         // Handle case where root images is just a responsive object { desktop: [...], mobile: [...] }
+         if (!Array.isArray(images) && typeof images === 'object' && (images.desktop || images.mobile)) {
+             rawSources = [images]; 
+        } else {
+             rawSources = Array.isArray(images) ? images : [images];
+        }
+
+        // Map and flatten
+        return rawSources.map(item => {
+            if (typeof item === 'object' && item !== null && (item.desktop || item.mobile)) {
+                // Get the correct source for the device
+                const source = (isMobile && item.mobile) ? item.mobile : (item.desktop || item.imageId || item); // fallback
+                return source;
+            }
+            return item;
+        }).flat(); // Flatten allows a responsive key to return multiple images (Array)
+
+    }, [images, isMobile]);
+
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isStatic, setIsStatic] = useState(false);
+
+    useEffect(() => {
+        // Reset index if slides change (e.g. switching mobile/desktop count)
+        if (currentIndex >= slides.length) {
+            setCurrentIndex(0);
+        }
+    }, [slides.length]);
 
     useEffect(() => {
         if (slides.length <= 1) return;
 
         const interval = setInterval(() => {
-            // Trigger Static
-            setIsStatic(true);
-            
-            // Switch Slide slightly after static starts
-            setTimeout(() => {
-                setCurrentIndex(prev => (prev + 1) % slides.length);
-            }, 100);
-
-            // Remove Static
-            setTimeout(() => {
-                setIsStatic(false);
-            }, 300);
-
-        }, 5000); // Switch every 5 seconds
+            setCurrentIndex(prev => (prev + 1) % slides.length);
+        }, 5000); 
 
         return () => clearInterval(interval);
     }, [slides.length]);
 
-    const currentSrc = slides[currentIndex];
-    
-    // Check if it's a Cloudinary public ID or full URL
-    const isPlaceholder = !currentSrc.startsWith('http') && currentSrc.includes('-'); 
-    const finalSrc = isPlaceholder 
-      ? `https://source.unsplash.com/random/1920x1080?cinematic,${currentSrc}`
-      : getImageUrl(currentSrc, { width: 1920, height: 1080 });
-
     return (
-        <div className="absolute inset-0 z-0">
-             {/* Main Image */}
-             <motion.div 
-                key={currentIndex}
-                className="w-full h-full"
-                initial={{ scale: 1.1 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 10, ease: "linear" }}
-            >
-                <img 
-                    src={finalSrc} 
-                    alt="Story"
-                    className="w-full h-full object-cover"
-                />
-                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent opacity-90" />
-            </motion.div>
+        <div className="absolute inset-0 z-0 bg-black">
+             <AnimatePresence mode="popLayout">
+                {slides.map((img, index) => {
+                    if (index !== currentIndex) return null;
+                    
+                    // Defensive check in case flattened item is still complex (shouldn't be)
+                    const srcString = typeof img === 'string' ? img : JSON.stringify(img);
+                    
+                    const isPlaceholder = !srcString.startsWith('http') && srcString.includes('-'); 
+                    const finalSrc = isPlaceholder 
+                      ? `https://source.unsplash.com/random/1920x1080?cinematic,${srcString}`
+                      : getImageUrl(srcString, { width: 1920, height: 1080 });
 
-            {/* TV Static Overlay for Transitions */}
-            <AnimatePresence>
-                {isStatic && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="absolute inset-0 z-20 bg-cover pointer-events-none mix-blend-overlay"
-                        style={{ backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/7/76/Noise.png')" }}
-                    />
-                )}
-            </AnimatePresence>
+                    return (
+                        <motion.div 
+                            key={`${index}-${finalSrc}`}
+                            className="absolute inset-0 w-full h-full"
+                            initial={{ opacity: 0, scale: 1.1 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 1.5, ease: "easeInOut" }} 
+                        >
+                            <img 
+                                src={finalSrc} 
+                                alt="Story"
+                                className="w-full h-full object-cover"
+                            />
+                             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent opacity-90" />
+                        </motion.div>
+                    );
+                })}
+             </AnimatePresence>
         </div>
     );
 };
