@@ -1,13 +1,23 @@
 [
   {
     "id": "1",
-    "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939949/Messenger_creation_C4E0488C-6C6C-4237-AAF5-DE2F01F43553_b4pnnh.jpg",
+    "images": [
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767124472/Messenger_creation_C4E0488C-6C6C-4237-AAF5-DE2F01F43553_psnehj.jpg",
+      
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939996/Messenger_creation_1B8A0952-E10E-4C50-909A-80D0B72737F1_et01vs.jpg"
+    ],
+    "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767124472/Messenger_creation_C4E0488C-6C6C-4237-AAF5-DE2F01F43553_psnehj.jpg",
     "title": "2025",
     "description": "We all prayed for a fresh start in 2025—finishing school, landing a job, earning our first salary, enjoying life—and I wanted to stick with the relationship I had. Perhaps you could say that I was a little self-centered, but I wanted to have a fantastic run and run again in 2026 with the people I love.",
     "date": "2025"
   },
   {
     "id": "2",
+    "images": [
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939342/500442052_681027907890621_3151875760700323871_n_mkssn9.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945619/photo_52_2025-12-29_02-02-12_r1uhky.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945648/photo_8_2025-12-29_02-02-12_isahur.jpg"
+    ],
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939342/500442052_681027907890621_3151875760700323871_n_mkssn9.jpg",
     "title": "New Heights and lows",
     "description": "new heights. I always wanted to push myself at work and learn more about myself in order to improve my abilities. I always told myself that a career is more important than a relationship. I wanted to set myself up for a better future, and it all worked out well. However, I forgot the most crucial part—losing the people who were closest to me. In the process, I also lost the one thing I valued most. The heights aren't always what we should aim for, but I hope we can reach them without losing ourselves.",
@@ -15,30 +25,69 @@
   },
   {
     "id": "3",
+    "images": [
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_48_2025-12-29_02-02-12_jbhbxf.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945619/photo_51_2025-12-29_02-02-12_xyzcw2.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_46_2025-12-29_02-02-12_ao4npb.jpg"
+    ],
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_48_2025-12-29_02-02-12_jbhbxf.jpg",
     "title": "People",
-    "description": "I always appreciated the people I met to make this year great, even though we aren't getting together or seeing each other. It's sort of sad to see that, but we all know that we are working hard for our careers.",
+    "description": "to the people i met this year and build relationship thank you for having me without you i will not be rhyss, thank you for having laughts, having wild drinking session, and even just having the time with me, i hope we can see in the future and celebrate our achivements",
     "date": "2025"
   },
   {
     "id": "4",
+    "images": [
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767127035/received_729268375823860_cziglj.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939540/received_7696740833670458_gcyg3v.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939574/received_1093908959081497_mlqnyh.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1752335631/462650385_1273653783665121_9032193715436817673_n_fdv9w6.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1752335630/462578647_1073607034545333_2751348329163223964_n_vzw7v1.jpg"
+      
+    ],
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939540/received_7696740833670458_gcyg3v.jpg",
     "title": "The Adventure",
-    "description": "four years together was a thankfull years to my classmate specially to my group, ",
+    "description": "thank you to my classmate and groupmates, you were all awsome it's been a crazy ride having different experince through the years from first year totoys to fourth year na gusto nalang mag tapos, thank you for the memories ",
     "date": "2025"
   },
   {
     "id": "5",
+    "images": [
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939565/received_1809661546296324_nwsao0.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767126530/photo_54_2025-12-29_02-02-12_lw4zre.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939958/Messenger_creation_1447755149890924_v5hgih.jpg",
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767127036/received_745673704673854_posopo.jpg"
+
+    ],
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766939565/received_1809661546296324_nwsao0.jpg",
-    "title": "The Lesson",
-    "description": "do always your best bring consistincy to the game you don't have to be number one, but always be the best you can be, just bring your a game and do the work instantly.",
+    "title": "The ending was just the start",
+    "description": "finishing my bachelor feels like a dream, it always have been my dream to graduate and first to graduate in my family it's been a crazy expericne from the heartache to the latenight sleep, to the always saying you can do it, graduated with CUM LAUDE and Student Leader of the year was a crazy ride but made throught all i couldn't do it with my classmate, director and family",
     "date": "2025"
   },
   {
     "id": "6",
+    "images": [
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_50_2025-12-29_02-02-12_mlf0m6.jpg",
+     
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945671/photo_32_2025-12-29_02-02-12_gcsowd.jpg",
+
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1767127036/Messenger_creation_6764A0D7-C262-40C5-B7AF-5892BB75DF63_d1xm3l.jpg"
+    ],
     "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_50_2025-12-29_02-02-12_mlf0m6.jpg",
     "title": "The Future",
     "description": "we don't what hold the future but make sure that your dream will come true, your future is brighter than ever, many times you will failed but there is always a way to make it right. we all have our own path to follow, but we all have the same goal, to make our future brighter than ever.",
     "date": "2025"
+  },
+  {
+    "id": "7",
+    "images": [
+      "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_50_2025-12-29_02-02-12_mlf0m6.jpg"
+     
+    ],
+    "imageId": "https://res.cloudinary.com/ddnxfpziq/image/upload/v1766945618/photo_50_2025-12-29_02-02-12_mlf0m6.jpg",
+    "title": "About you",
+    "description": "the choosen song the choosen picture maybe this year was the most memorable and pailfull, i didn't think this year was full of question that i should have answerd what if i didn't take that student president route, what if i just tried to be a normal student, what if i just try to be a normal person",
+    "date": "2025"
   }
+
 ]

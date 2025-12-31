@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Calendar, ChevronDown } from 'lucide-react';
-import { cn } from '../../lib/utils';
 import FilmGrain from '../common/FilmGrain';
 import storyData from '../../data/story.json';
 import { getImageUrl } from '../../lib/cloudinary';
@@ -83,39 +82,87 @@ const containerVariants = {
   }
 };
 
-const StoryCard = ({ item, index }) => {
-  const isPlaceholder = !item.imageId.startsWith('http') && item.imageId.includes('-'); 
-  const imageSrc = isPlaceholder 
-    ? `https://source.unsplash.com/random/1920x1080?cinematic,${item.imageId}`
-    : getImageUrl(item.imageId, { width: 1920, height: 1080 });
+// TV Channel Switch / Carousel Effect
+const TVCarousel = ({ images }) => {
+    // Ensure images is an array
+    const slides = Array.isArray(images) ? images : [images];
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isStatic, setIsStatic] = useState(false);
 
-  const isEven = index % 2 === 0;
+    useEffect(() => {
+        if (slides.length <= 1) return;
 
+        const interval = setInterval(() => {
+            // Trigger Static
+            setIsStatic(true);
+            
+            // Switch Slide slightly after static starts
+            setTimeout(() => {
+                setCurrentIndex(prev => (prev + 1) % slides.length);
+            }, 100);
+
+            // Remove Static
+            setTimeout(() => {
+                setIsStatic(false);
+            }, 300);
+
+        }, 5000); // Switch every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [slides.length]);
+
+    const currentSrc = slides[currentIndex];
+    
+    // Check if it's a Cloudinary public ID or full URL
+    const isPlaceholder = !currentSrc.startsWith('http') && currentSrc.includes('-'); 
+    const finalSrc = isPlaceholder 
+      ? `https://source.unsplash.com/random/1920x1080?cinematic,${currentSrc}`
+      : getImageUrl(currentSrc, { width: 1920, height: 1080 });
+
+    return (
+        <div className="absolute inset-0 z-0">
+             {/* Main Image */}
+             <motion.div 
+                key={currentIndex}
+                className="w-full h-full"
+                initial={{ scale: 1.1 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 10, ease: "linear" }}
+            >
+                <img 
+                    src={finalSrc} 
+                    alt="Story"
+                    className="w-full h-full object-cover"
+                />
+                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent opacity-90" />
+            </motion.div>
+
+            {/* TV Static Overlay for Transitions */}
+            <AnimatePresence>
+                {isStatic && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute inset-0 z-20 bg-cover pointer-events-none mix-blend-overlay"
+                        style={{ backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/7/76/Noise.png')" }}
+                    />
+                )}
+            </AnimatePresence>
+        </div>
+    );
+};
+
+
+const StoryCard = ({ item }) => {
   return (
     <div className="relative w-full h-[100dvh] flex items-center justify-center overflow-hidden snap-start pointer-events-none">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-         <motion.div 
-          className="w-full h-full"
-          initial={{ scale: 1.1 }}
-          whileInView={{ scale: 1 }}
-          transition={{ duration: 10, ease: "linear" }}
-        >
-          <img 
-            src={imageSrc} 
-            alt={item.title}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90" />
-        </motion.div>
-      </div>
+      
+      {/* Background with Carousel Effect */}
+      <TVCarousel images={item.images || item.imageId} /> 
 
-      {/* Content Overlay - Alternating Layout */}
-      <div className={cn(
-        "absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-16 transition-all",
-         isEven ? "items-start" : "items-end"
-      )}>
+      {/* Content Overlay - Always Left Aligned */}
+      <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-16 items-start transition-all">
         
         {/* Subtle Gradient for readability */}
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/40 to-transparent -z-10" />
@@ -126,23 +173,14 @@ const StoryCard = ({ item, index }) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className={cn(isEven ? "text-left" : "text-right")}
+            className="space-y-6 text-left"
           >
             <motion.h2 variants={textVariants} className="font-display text-4xl md:text-6xl font-bold leading-tight text-white drop-shadow-xl tracking-tighter">
               {item.title}
             </motion.h2>
 
-            <motion.div variants={textVariants} className={cn(
-                "max-w-2xl relative group", // Reduced max-width for better readability
-                isEven ? "mr-auto" : "ml-auto"
-            )}>
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-xl rounded-2xl -z-10 opacity-0 " />
-                <div className={cn(
-                    "absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -z-10 blur-xl",
-                    isEven ? "left-0" : "right-0"
-                )} />
-                
-                <p className="font-sans text-base md:text-md text-gray-100 leading-relaxed font-normal tracking-wide drop-shadow-lg whitespace-pre-line p-2 md:p-4">
+            <motion.div variants={textVariants} className="max-w-3xl relative">
+                <p className="font-sans text-xl md:text-2xl text-gray-100 font-medium drop-shadow-lg leading-relaxed">
                   {item.description}
                 </p>
             </motion.div>
@@ -260,11 +298,40 @@ export default function Gallery() {
         ))}
       </div>
 
-      {/* Footer */}
-      <footer className="h-[50vh] flex items-center justify-center bg-black text-white relative snap-start">
-        <div className="text-center px-4">
-          <h2 className="font-display text-4xl md:text-6xl mb-6">Fin.</h2>
-          <p className="font-sans text-gray-500">Ready for the sequel.</p>
+      {/* Footer / Final Chapter */}
+      <footer className="h-[100dvh] flex items-center justify-center bg-black text-white relative snap-start overflow-hidden">
+        {/* Background Carousel of All Images */}
+        <TVCarousel images={storyData.map(s => s.imageId)} />
+        
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-black/80 z-10" />
+
+        <div className="text-center px-4 z-20 max-w-4xl relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="space-y-8"
+          >
+             <h2 className="font-display text-6xl md:text-9xl mb-6 tracking-tighter text-white/90">2026?</h2>
+             
+             {/* Poem Section */}
+             <div className="font-serif text-xl md:text-3xl text-gray-300 leading-loose italic tracking-wide space-y-2">
+                <p>
+
+                “It doesn’t matter if we’re wrong…because every time we go wrong, we’ll continue to look for the right answer.” – Hachiman Hikigaya</p>
+            
+             </div>
+
+             <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 2, duration: 1.5 }}
+                className="pt-12"
+             >
+                <p className="font-sans text-sm text-gray-500 tracking-[0.3em] uppercase">See you in the next chapter</p>
+             </motion.div>
+          </motion.div>
         </div>
       </footer>
     </div>
